@@ -45,12 +45,14 @@ def create_app_json(project_name,project_des):
     except Exception as e: print(e)
 
 def create_proc():
+    #this file will create a boilerplate for procfile
     try:
         f = open("Procfile","w+")
         f.write("web: gunicorn app:app")
     except Exception as e: print(e)
 
 def create_inference(n):
+    #this file will create a boilerplate for inference
     n = int(n)
     classes = []
     for x in range(1,n+1):
@@ -77,6 +79,7 @@ def get_call_name(image_bytes):
     except Exception as e: print(e)
         
 def create_req():
+    #this file will create a boilerplate for requirements
     try:
         f = open("requirements.txt","+w")
         f.write("""
@@ -90,17 +93,20 @@ gunicorn==19.9.0
     except Exception as e: print(e)
         
 def create_run():
+    #this file will create a boilerplate for runtime
     try:
-        print("Writing runtime.txt...")
         f = open("runtime.txt","+w")
         f.write("python-3.7.1")
         f.close()
     except Exception as e: print(e)
 
 def create_com():
+    #this file will create a boilerplate for commons
     try:
-        print("Alright! Now, enter the classifier code, line by line then hit Ctrl-Z ( windows ) to save it...")
+        print("\nAlright! Now, enter the classifier code, line by line then hit Ctrl-Z ( windows ) to save it...")
+        print("**Make sure that you write it by initiating a new function as class classifier(nn.Module)**")
         contents = []
+
         while True:
             try:
                 line = input()
@@ -108,7 +114,6 @@ def create_com():
                 break
             contents.append(line)
 
-        
         p = int(input("How many transform have you used in the test loader? : "))
         transforms = []
 
@@ -158,7 +163,7 @@ def get_tensor(image_bytes):
         
         
 def create_templates():
-    #created directories
+    #create directories and templates
     try:
         os.mkdir("templates")
         os.mkdir("static")
@@ -457,20 +462,15 @@ nav.navbar.navbar-expand-md.bg-dark {
 
 
     
-###########################################################################################
+#Console menu creation
 print("""
                                                            
-   @@@  @@@   @@@@@@   @@@@@@@   @@@@@@   @@@  @@@   @@@@@@   
-   @@@  @@@  @@@@@@@@  @@@@@@@  @@@@@@@@  @@@@ @@@  @@@@@@@@  
-   @@!  !@@  @@!  @@@    @@!    @@!  @@@  @@!@!@@@  @@!  @@@  
-   !@!  @!!  !@!  @!@    !@!    !@!  @!@  !@!!@!@!  !@!  @!@  
-   @!@@!@!   @!@!@!@!    @!!    @!@!@!@!  @!@ !!@!  @!@!@!@!  
-   !!@!!!    !!!@!!!!    !!!    !!!@!!!!  !@!  !!!  !!!@!!!!  
-   !!: :!!   !!:  !!!    !!:    !!:  !!!  !!:  !!!  !!:  !!!  
-   :!:  !:!  :!:  !:!    :!:    :!:  !:!  :!:  !:!  :!:  !:!  
-    ::  :::  ::   :::     ::    ::   :::   ::   ::  ::   :::  
-    :   :::   :   : :     :      :   : :  ::    :    :   : :  
-                                                           
+       ██╗  ██╗ █████╗ ████████╗ █████╗ ███╗   ██╗ █████╗ 
+       ██║ ██╔╝██╔══██╗╚══██╔══╝██╔══██╗████╗  ██║██╔══██╗
+       █████╔╝ ███████║   ██║   ███████║██╔██╗ ██║███████║
+       ██╔═██╗ ██╔══██║   ██║   ██╔══██║██║╚██╗██║██╔══██║
+       ██║  ██╗██║  ██║   ██║   ██║  ██║██║ ╚████║██║  ██║
+       ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝
 """)
 print(""".______________________________________________________|_._._._._._._._._._.
  \_____________________________________________________|_#_#_#_#_#_#_#_#_#_|
@@ -497,6 +497,8 @@ create_com()
 create_templates()
 create_run()
 create_req()
+print("\n")
+print("===========================")
 print("Writing app.py...")
 print("Writing app.json...")
 print("Writing procfile...")
@@ -505,5 +507,7 @@ print("Writing requirements.txt...")
 print("Writing runtime.txt...")
 print("Writing commons.py...")
 print("Creating templates...")
+print("===========================")
 print("\n")
 print("Your project files have created successfully...!")
+print("\n")
